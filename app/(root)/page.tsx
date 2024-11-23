@@ -7,10 +7,10 @@ async function Page({ searchParams }: { searchParams: { query?: string } }) {
     {
       createdAt: new Date(),
       view: 33,
-      auth: { _id: 1 },
+      author: { _id: 1 , name:"Ali Abdullah" },
       _id: 1,
       description: "this is the first",
-      image: "logo.png",
+      image: "https://th.bing.com/th/id/OIP.caMRc0eUe95wbXtWsvyuaQHaFj?rs=1&pid=ImgDetMain",
       catagory: "halwai",
       title: "the first post",
     },
@@ -39,10 +39,9 @@ async function Page({ searchParams }: { searchParams: { query?: string } }) {
           {posts?.length > 0 ? (
             <>
               {posts.map((post, index: Number) => (
-                <>
-                                <StartUpCards post={post} />
-
-                </>
+                <div className="">
+               <StartUpCards post={post} />
+                </div>
               ))}
             </>
           ) : (
