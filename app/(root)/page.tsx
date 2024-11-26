@@ -1,22 +1,15 @@
 import SearchInput from "@/components/searchInput";
 import StartUpCards from "@/components/StartUpCards";
+import { Startup_query } from "@/lib/query";
+import { client } from "@/sanity/lib/client";
 import Image from "next/image";
 
 async function Page({ searchParams }: { searchParams: { query?: string } }) {
-  const posts = [
-    {
-      createdAt: new Date(),
-      view: 33,
-      author: { _id: 1 , name:"Ali Abdullah" },
-      _id: 1,
-      description: "this is the first",
-      image: "https://th.bing.com/th/id/OIP.caMRc0eUe95wbXtWsvyuaQHaFj?rs=1&pid=ImgDetMain",
-      catagory: "halwai",
-      title: "the first post",
-    },
-  ];
+  const posts =await client.fetch(Startup_query)
+console.log(posts)
 
-  const query = searchParams.query || "";
+  const query =  searchParams.query || "";
+
   return (
     <>
       <section className="pink_container">
