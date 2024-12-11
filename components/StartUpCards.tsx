@@ -7,7 +7,6 @@ import { Button } from "./ui/button";
 import { Author, Startup } from "@/sanity/types";
 import { author } from "@/sanity/schemaTypes/author";
 
-
 export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author };
 
 function StartUpCards({ post }: { post: StartupTypeCard }) {
@@ -15,7 +14,7 @@ function StartUpCards({ post }: { post: StartupTypeCard }) {
     post;
 
   return (
-    <div> 
+    <div>
       <li className="startup-card group">
         <div className="flex-between">
           <p className="startup-card-date">{dateFuntionality(_createdAt)}</p>
@@ -49,12 +48,10 @@ function StartUpCards({ post }: { post: StartupTypeCard }) {
           <p className="startup-card_desc">{description}</p>
           <img src={image} alt="placeholder" className="startup-card_img" />
         </Link>
-
         <div className="flex-between gap-3 mt-5">
           <Link href={`/?query=${catagory?.toLowerCase()}`}>
             <p className="text-16-medium">{catagory}</p>
           </Link>
-
           <Button className="startup-card_btn" asChild>
             <Link href={`startup/${_id}`}>details</Link>
           </Button>
